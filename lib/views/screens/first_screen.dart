@@ -24,7 +24,7 @@ class FirstScreen extends StatelessWidget {
               fit: BoxFit.fill,
             )*/
                 Image.asset(
-              'assets/images/first_screen.jpg',
+              'assets/images/first_screen.png',
               fit: BoxFit.fill,
             ),
           ),
@@ -71,7 +71,7 @@ class FirstScreen extends StatelessWidget {
                     child: TextButton(
                       key: const Key("LOGIN_FIRST_SCREEN"),
                       onPressed: () {
-                        Navigator.pushReplacementNamed(
+                        Navigator.pushNamed(
                           context,
                           '/SignInScreen',
                         );
@@ -98,7 +98,7 @@ class FirstScreen extends StatelessWidget {
                         child: Text(
                           'LOGIN',
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 25,
                             color: myWhite,
                           ),
                         ),
@@ -127,7 +127,7 @@ class FirstScreen extends StatelessWidget {
                     child: TextButton(
                       key: const Key("SIGN_UP_FIRST_SCREEN"),
                       onPressed: () {
-                        Navigator.pushReplacementNamed(
+                        Navigator.pushNamed(
                           context,
                           '/SignUpChild',
                         );

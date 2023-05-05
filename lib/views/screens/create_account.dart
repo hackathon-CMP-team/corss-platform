@@ -173,10 +173,13 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-  SizedBox submit() {
-    return SizedBox(
+  Container submit() {
+    return Container(
       width: MediaQuery.of(context).size.width * 0.8,
       height: textFieldheight,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(buttonRadius),
+      ),
       child: ElevatedButton(
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.resolveWith<Color?>(
@@ -305,7 +308,7 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-  Widget confirmPasswordTextField() {
+  SizedBox confirmPasswordTextField() {
     return SizedBox(
       width: MediaQuery.of(context).size.width * 0.8,
       height: 71,
@@ -315,12 +318,7 @@ class _SignUpState extends State<SignUp> {
         controller: _confirmPass,
         decoration: InputDecoration(
           suffixIcon: IconButton(
-            icon: Icon(
-              _confirmPasswordVisibile
-                  ? Icons.visibility
-                  : Icons.visibility_off,
-              color: textFieldTextColor,
-            ),
+
             onPressed: () {
               setState(
                 () {
@@ -328,6 +326,13 @@ class _SignUpState extends State<SignUp> {
                 },
               );
             },
+            icon: Icon(
+              _confirmPasswordVisibile
+                  ? Icons.visibility
+                  : Icons.visibility_off,
+              color: textFieldTextColor,
+            ),
+
           ),
           filled: true,
           fillColor: myWhite,
@@ -336,7 +341,7 @@ class _SignUpState extends State<SignUp> {
             height: 1,
             fontSize: errorFontSize,
           ),
-          hintText: "Enter Your Password",
+          hintText: "Enter Your 6 digit pin",
           hintStyle: TextStyle(
             color: textFieldTextColor,
             fontSize: 16,
