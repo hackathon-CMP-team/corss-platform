@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cmp_developers/constants/constants.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import '../../controllers/create_account_controller.dart';
 import '../widgets/frequently_used_widgets.dart';
-import 'package:dob_input_field/dob_input_field.dart';
 
-class oneTimePassword extends StatefulWidget {
-  const oneTimePassword({
+class OneTimePassword extends StatefulWidget {
+  const OneTimePassword({
     super.key,
   });
   static const routeName = '/OneTimePassword';
   @override
-  State<oneTimePassword> createState() => _oneTimePassword();
+  State<OneTimePassword> createState() => OneTimePasswordState();
 }
 
-class _oneTimePassword extends State<oneTimePassword> {
+class OneTimePasswordState extends State<OneTimePassword> {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -52,7 +50,9 @@ class _oneTimePassword extends State<oneTimePassword> {
                         validator: (value) {
                           if (value!.isEmpty) {
                             return "Enter the OTP";
-                          } else {}
+                          } else {
+                            return null;
+                          }
                         },
                         pastedTextStyle: TextStyle(
                           color: Colors.green.shade600,
