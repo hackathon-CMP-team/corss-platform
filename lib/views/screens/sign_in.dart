@@ -37,7 +37,7 @@ class _SignInState extends State<SignIn> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.45,
+                    height: MediaQuery.of(context).size.height * 0.52,
                   ),
                   Text(
                     'LOGIN',
@@ -142,7 +142,7 @@ class _SignInState extends State<SignIn> {
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.76,
-                    height: 20,
+                    height: 50,
                     child: TextButton(
                       key: const Key("Forget_Password"),
                       onPressed: () {
@@ -161,7 +161,7 @@ class _SignInState extends State<SignIn> {
                       ),
                       child: Center(
                         child: Text(
-                          'Forget Password?',
+                          'Forgot Your Password?',
                           style: TextStyle(
                             fontSize: 16,
                             color: textFieldTextColor,

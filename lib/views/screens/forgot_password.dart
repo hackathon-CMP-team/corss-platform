@@ -66,7 +66,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             "/SignInScreen",
                           );
                         },
-                        child: Text(
+                        child: const Text(
                           "Back to Login",
                           style: TextStyle(
                             fontSize: 16,

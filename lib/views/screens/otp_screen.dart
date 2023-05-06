@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cmp_developers/constants/constants.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import '../widgets/frequently_used_widgets.dart';
 import '../../controllers/create_account_controller.dart';
 
 class OneTimePassword extends StatefulWidget {
@@ -41,6 +42,7 @@ class OneTimePasswordState extends State<OneTimePassword> {
                     style: TextStyle(
                       fontSize: 20,
                       color: Theme.of(context).primaryColor,
+
                     ),
                   ),
                   const SizedBox(
@@ -60,7 +62,7 @@ class OneTimePasswordState extends State<OneTimePassword> {
                         print(value);
                       },
                       validator: (value) {
-                        if (value!.isEmpty) {
+                       if (value!.isEmpty && value.length < 6) {
                           return "Enter the verification code!";
                         } else {
                           return null;

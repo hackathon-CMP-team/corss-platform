@@ -19,33 +19,38 @@ class _NewPasswordCreate extends State<NewPasswordCreate> {
   final _confirmPass = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
+  Future<bool> _onWillPop() async {
+    return false;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(
-                'assets/images/newPassword.png',
+    return WillPopScope(
+      onWillPop: _onWillPop,
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  'assets/images/newPassword.png',
+                ),
+                fit: BoxFit.cover,
               ),
-              fit: BoxFit.cover,
             ),
-          ),
-          child: Form(
-              key: _formKey,
-              child: Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.5,
-                    ),
+            child: Form(
+                key: _formKey,
+                child: Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.5,
+                      ),
 
-                    const SizedBox(
-                      height: 24,
-                    ),
-
+                      const SizedBox(
+                        height: 24,
+                      ),
                     Text(
                       "New Password",
                       style: TextStyle(fontSize: 20, color: Theme.of(context).primaryColor,),
@@ -58,24 +63,25 @@ class _NewPasswordCreate extends State<NewPasswordCreate> {
                     passwordInput(),
                     confirmPasswordTextField(),
 
-                    const SizedBox(
-                      height: 24,
-                    ),
+                      const SizedBox(
+                        height: 24,
+                      ),
 
-                    submit(),
+                      submit(),
 
-                    const SizedBox(
-                      height: 48,
-                    ),
+                      const SizedBox(
+                        height: 48,
+                      ),
 
                     uniformSpacing(),
 
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.1,
-                    )
-                  ],
-                ),
-              )),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.1,
+                      )
+                    ],
+                  ),
+                )),
+          ),
         ),
       ),
     );
@@ -215,7 +221,7 @@ class _NewPasswordCreate extends State<NewPasswordCreate> {
             height: 1,
             fontSize: errorFontSize,
           ),
-          hintText: "Enter Your 6 digit pin",
+          hintText: "Confirm Your 6 digit pin",
           hintStyle: TextStyle(
             color: textFieldTextColor,
             fontSize: 16,

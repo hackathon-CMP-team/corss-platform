@@ -318,7 +318,6 @@ class _SignUpState extends State<SignUp> {
         controller: _confirmPass,
         decoration: InputDecoration(
           suffixIcon: IconButton(
-
             onPressed: () {
               setState(
                 () {
@@ -332,7 +331,6 @@ class _SignUpState extends State<SignUp> {
                   : Icons.visibility_off,
               color: textFieldTextColor,
             ),
-
           ),
           filled: true,
           fillColor: myWhite,
