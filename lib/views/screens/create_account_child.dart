@@ -14,8 +14,8 @@ class CreateAccountChild extends StatefulWidget {
 
 class CreateAccountChildState extends State<CreateAccountChild> {
   bool _passwordVisible = false;
-  bool _confirmPasswordVisibile = false;
-  final _passowrdInput = TextEditingController();
+  bool _confirmPasswordVisible = false;
+  final _passwordInput = TextEditingController();
   final _confirmPass = TextEditingController();
   final _email = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -100,21 +100,21 @@ class CreateAccountChildState extends State<CreateAccountChild> {
                     ],
                   ),
 
-                  unformSpacing(),
+                  uniformSpacing(),
 
                   emailInput(),
 
-                  unformSpacing(),
+                  uniformSpacing(),
 
                   phoneNumberInput(
                       "Enter your Phone Number", context, _phoneNumberInput),
 
-                  unformSpacing(),
+                  uniformSpacing(),
 
                   phoneNumberInput("Enter parent Phone Number", context,
                       _parentPhoneNumberInput),
 
-                  unformSpacing(),
+                  uniformSpacing(),
 
                   textFormFieldInput(
                       "Enter your birthday",
@@ -124,10 +124,10 @@ class CreateAccountChildState extends State<CreateAccountChild> {
                       context,
                       _birthDayInput),
 
-                  unformSpacing(),
+                  uniformSpacing(),
                   passwordInput(),
                   //Spacing
-                  unformSpacing(),
+                  uniformSpacing(),
                   _confirmPasswordTextField(),
 
                   const SizedBox(
@@ -141,7 +141,7 @@ class CreateAccountChildState extends State<CreateAccountChild> {
                   ),
 
                   alreadyHaveAccount(context),
-                  unformSpacing(),
+                  uniformSpacing(),
                 ],
               ),
             ),
@@ -158,7 +158,7 @@ class CreateAccountChildState extends State<CreateAccountChild> {
       height: 71,
       child: TextFormField(
         maxLength: 6,
-        obscureText: !_confirmPasswordVisibile,
+        obscureText: !_confirmPasswordVisible,
         controller: _confirmPass,
         decoration: InputDecoration(
           filled: true,
@@ -195,7 +195,7 @@ class CreateAccountChildState extends State<CreateAccountChild> {
           ),
           suffixIcon: IconButton(
             icon: Icon(
-              _confirmPasswordVisibile
+              _confirmPasswordVisible
                   ? Icons.visibility
                   : Icons.visibility_off,
               color: textFieldTextColor,
@@ -203,7 +203,7 @@ class CreateAccountChildState extends State<CreateAccountChild> {
             onPressed: () {
               setState(
                 () {
-                  _confirmPasswordVisibile = !_confirmPasswordVisibile;
+                  _confirmPasswordVisible = !_confirmPasswordVisible;
                 },
               );
             },
@@ -213,7 +213,7 @@ class CreateAccountChildState extends State<CreateAccountChild> {
           if (value!.isEmpty) {
             return "Please confirm your pin";
           } else {
-            if (confirmPassword(_passowrdInput.text, _confirmPass.text)) {
+            if (confirmPassword(_passwordInput.text, _confirmPass.text)) {
               return null;
             } else {
               return "Pin is a mismatch";
@@ -272,7 +272,7 @@ class CreateAccountChildState extends State<CreateAccountChild> {
       child: TextFormField(
         maxLength: 6,
         obscureText: !_passwordVisible,
-        controller: _passowrdInput,
+        controller: _passwordInput,
         decoration: InputDecoration(
           disabledBorder: OutlineInputBorder(
             borderRadius: const BorderRadius.all(

@@ -14,8 +14,8 @@ class NewPasswordCreate extends StatefulWidget {
 
 class _NewPasswordCreate extends State<NewPasswordCreate> {
   bool _passwordVisible = false;
-  bool _confirmPasswordVisibile = false;
-  final _passowrdInput = TextEditingController();
+  bool _confirmPasswordVisible = false;
+  final _passwordInput = TextEditingController();
   final _confirmPass = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
@@ -51,21 +51,17 @@ class _NewPasswordCreate extends State<NewPasswordCreate> {
                       const SizedBox(
                         height: 24,
                       ),
+                    Text(
+                      "New Password",
+                      style: TextStyle(fontSize: 20, color: Theme.of(context).primaryColor,),
+                    ),
 
-                      const Text(
-                        "New Password",
-                        style: TextStyle(fontSize: 20, color: Colors.black45),
-                      ),
+                    uniformSpacing(),
 
-                      unformSpacing(),
+                    uniformSpacing(),
 
-                      unformSpacing(),
-
-                      passwordInput(),
-
-                      //Spacing
-                      unformSpacing(),
-                      confirmPasswordTextField(),
+                    passwordInput(),
+                    confirmPasswordTextField(),
 
                       const SizedBox(
                         height: 24,
@@ -77,7 +73,7 @@ class _NewPasswordCreate extends State<NewPasswordCreate> {
                         height: 48,
                       ),
 
-                      unformSpacing(),
+                    uniformSpacing(),
 
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.1,
@@ -94,7 +90,7 @@ class _NewPasswordCreate extends State<NewPasswordCreate> {
   Container submit() {
     return Container(
       width: MediaQuery.of(context).size.width * 0.8,
-      height: textFieldheight,
+      height: textFieldHeight,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(buttonRadius),
       ),
@@ -118,15 +114,15 @@ class _NewPasswordCreate extends State<NewPasswordCreate> {
           setState(
             () {
               _formKey.currentState!.validate();
-              print(_confirmPasswordVisibile);
+              Navigator.pushNamed(context, '/HomeScreen');
             },
           );
         },
         child: Text(
-          "Confirm",
+          "SUBMIT",
           style: TextStyle(
             fontSize: 20,
-            color: myWhite,
+            color: buttonTextColor,
           ),
         ),
       ),
@@ -140,7 +136,7 @@ class _NewPasswordCreate extends State<NewPasswordCreate> {
       child: TextFormField(
         maxLength: 6,
         obscureText: !_passwordVisible,
-        controller: _passowrdInput,
+        controller: _passwordInput,
         decoration: InputDecoration(
           suffixIcon: IconButton(
             onPressed: () {
@@ -200,19 +196,19 @@ class _NewPasswordCreate extends State<NewPasswordCreate> {
       height: 71,
       child: TextFormField(
         maxLength: 6,
-        obscureText: !_confirmPasswordVisibile,
+        obscureText: !_confirmPasswordVisible,
         controller: _confirmPass,
         decoration: InputDecoration(
           suffixIcon: IconButton(
             onPressed: () {
               setState(
                 () {
-                  _confirmPasswordVisibile = !_confirmPasswordVisibile;
+                  _confirmPasswordVisible = !_confirmPasswordVisible;
                 },
               );
             },
             icon: Icon(
-              _confirmPasswordVisibile
+              _confirmPasswordVisible
                   ? Icons.visibility
                   : Icons.visibility_off,
               color: textFieldTextColor,
@@ -245,7 +241,7 @@ class _NewPasswordCreate extends State<NewPasswordCreate> {
           if (value!.isEmpty) {
             return "Please confirm your pin";
           } else {
-            if (confirmPassword(_passowrdInput.text, _confirmPass.text)) {
+            if (confirmPassword(_passwordInput.text, _confirmPass.text)) {
               return null;
             } else {
               return "Pin is a mismatch";
@@ -259,10 +255,10 @@ class _NewPasswordCreate extends State<NewPasswordCreate> {
   /*SizedBox confirmPasswordTextField() {
     return SizedBox(
       width: MediaQuery.of(context).size.width * 0.8,
-      height: textFieldheight,
+      height: textFieldHeight,
       child: TextFormField(
         maxLength: 6,
-        obscureText: !_confirmPasswordVisibile,
+        obscureText: !_confirmPasswordVisible,
         controller: _confirmPass,
         decoration: InputDecoration(
           filled: true,
@@ -289,15 +285,15 @@ class _NewPasswordCreate extends State<NewPasswordCreate> {
           ),
           suffixIcon: IconButton(
             icon: Icon(
-              _confirmPasswordVisibile
+              _confirmPasswordVisible
                   ? Icons.visibility
                   : Icons.visibility_off,
               color: textFieldTextColor,
             ),
             onPressed: () {
               setState() {
-                _confirmPasswordVisibile = !_confirmPasswordVisibile;
-                print(_confirmPasswordVisibile);
+                _confirmPasswordVisible = !_confirmPasswordVisible;
+                print(_confirmPasswordVisible);
               }
             },
           ),
@@ -306,7 +302,7 @@ class _NewPasswordCreate extends State<NewPasswordCreate> {
           if (value!.isEmpty) {
             return "Please confirm your pin";
           } else {
-            if (confirmPassword(_passowrdInput.text, _confirmPass.text)) {
+            if (confirmPassword(_passwordInput.text, _confirmPass.text)) {
               return null;
             } else {
               return "Pin is a mismatch";

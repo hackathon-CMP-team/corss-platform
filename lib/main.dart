@@ -6,7 +6,6 @@ import 'package:flutter_cmp_developers/views/screens/new_password_create.dart';
 import 'package:flutter_cmp_developers/views/screens/otp_screen.dart';
 import 'views/screens/create_account.dart';
 import 'views/screens/first_screen.dart';
-import 'views/screens/forget_password_one.dart';
 import 'views/screens/home.dart';
 import 'views/screens/sign_in.dart';
 import 'views/screens/splash_screen.dart';
