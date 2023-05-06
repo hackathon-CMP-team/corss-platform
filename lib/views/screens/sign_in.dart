@@ -20,22 +20,17 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          SizedBox(
-            width: double.infinity,
-            height: double.infinity,
-            child: /*SvgPicture.asset(
-              'assets/image.svg',
-              semanticsLabel: 'My Image',
-              fit: BoxFit.fill,
-            )*/
-                Image.asset(
-              'assets/images/first_screen.jpg',
-              fit: BoxFit.fill,
+      body: SingleChildScrollView(
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                'assets/images/first_screen.jpg',
+              ),
+              fit: BoxFit.cover,
             ),
           ),
-          Form(
+          child: Form(
             key: _formKey,
             child: Center(
               child: Column(
@@ -51,8 +46,8 @@ class _SignInState extends State<SignIn> {
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.15,
+                  const SizedBox(
+                    height: 24,
                   ),
                   emailInput(),
                   unformSpacing(),
@@ -94,7 +89,7 @@ class _SignInState extends State<SignIn> {
                           'LOGIN',
                           style: TextStyle(
                             fontSize: 20,
-                            color: myWhite,
+                            color: butttonTextColor,
                           ),
                         ),
                       ),
@@ -127,8 +122,7 @@ class _SignInState extends State<SignIn> {
                               buttonRadius,
                             ),
                             side: BorderSide(
-                              color: Theme.of(context).primaryColor,
-                            ),
+                                color: Theme.of(context).primaryColor),
                           ),
                         ),
                       ),
@@ -176,17 +170,176 @@ class _SignInState extends State<SignIn> {
                       ),
                     ),
                   ),
-
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.15,
-                  )
                 ],
               ),
             ),
           ),
-        ],
+        ),
       ),
     );
+    // return Scaffold(
+    //   body: Stack(
+    //     children: [
+    //       SizedBox(
+    //         width: double.infinity,
+    //         height: double.infinity,
+    //         child: /*SvgPicture.asset(
+    //           'assets/image.svg',
+    //           semanticsLabel: 'My Image',
+    //           fit: BoxFit.fill,
+    //         )*/
+    //         Image.asset(
+    //           'assets/images/first_screen.jpg',
+    //           fit: BoxFit.fill,
+    //         ),
+    //       ),
+    //       Form(
+    //         key: _formKey,
+    //         child: Center(
+    //           child: Column(
+    //             crossAxisAlignment: CrossAxisAlignment.center,
+    //             children: [
+    //               SizedBox(
+    //                 height: MediaQuery.of(context).size.height * 0.45,
+    //               ),
+    //               const Text(
+    //                 'LOGIN',
+    //                 style: TextStyle(
+    //                   fontSize: 20,
+    //                   color: Colors.black,
+    //                 ),
+    //               ),
+    //               const SizedBox(
+    //                 height: 24,
+    //               ),
+    //               emailInput(),
+    //               unformSpacing(),
+    //               passwordInput(),
+    //               const SizedBox(
+    //                 height: 8,
+    //               ),
+    //               SizedBox(
+    //                 width: MediaQuery.of(context).size.width * 0.76,
+    //                 height: 51,
+    //                 child: TextButton(
+    //                   key: const Key("LOGIN_Second_SCREEN"),
+    //                   onPressed: () {
+    //                     Navigator.pushReplacementNamed(
+    //                       context,
+    //                       '/HomeScreen',
+    //                     );
+    //                   },
+    //                   style: ButtonStyle(
+    //                     backgroundColor:
+    //                     MaterialStateProperty.resolveWith<Color?>(
+    //                           (Set<MaterialState> states) {
+    //                         return Theme.of(context).primaryColor;
+    //                       },
+    //                     ),
+    //                     shape:
+    //                     MaterialStateProperty.all<RoundedRectangleBorder>(
+    //                       RoundedRectangleBorder(
+    //                         borderRadius: BorderRadius.circular(
+    //                           buttonRadius,
+    //                         ),
+    //                         side: BorderSide(
+    //                             color: Theme.of(context).primaryColor),
+    //                       ),
+    //                     ),
+    //                   ),
+    //                   child: Center(
+    //                     child: Text(
+    //                       'LOGIN',
+    //                       style: TextStyle(
+    //                         fontSize: 20,
+    //                         color: butttonTextColor,
+    //                       ),
+    //                     ),
+    //                   ),
+    //                 ),
+    //               ),
+    //               unformSpacing(),
+    //               //Register Button
+    //               SizedBox(
+    //                 width: MediaQuery.of(context).size.width * 0.76,
+    //                 height: 51,
+    //                 child: TextButton(
+    //                   key: const Key("Register_Second_SCREEN"),
+    //                   onPressed: () {
+    //                     Navigator.pushNamed(
+    //                       context,
+    //                       '/SignUp',
+    //                     );
+    //                   },
+    //                   style: ButtonStyle(
+    //                     backgroundColor:
+    //                     MaterialStateProperty.resolveWith<Color?>(
+    //                           (Set<MaterialState> states) {
+    //                         return myWhite;
+    //                       },
+    //                     ),
+    //                     shape:
+    //                     MaterialStateProperty.all<RoundedRectangleBorder>(
+    //                       RoundedRectangleBorder(
+    //                         borderRadius: BorderRadius.circular(
+    //                           buttonRadius,
+    //                         ),
+    //                         side: BorderSide(
+    //                             color: Theme.of(context).primaryColor),
+    //                       ),
+    //                     ),
+    //                   ),
+    //                   child: Center(
+    //                     child: Text(
+    //                       'REGISTER',
+    //                       style: TextStyle(
+    //                         fontSize: 20,
+    //                         color: Theme.of(context).primaryColor,
+    //                       ),
+    //                     ),
+    //                   ),
+    //                 ),
+    //               ),
+    //               const SizedBox(
+    //                 height: 12,
+    //               ),
+    //               SizedBox(
+    //                 width: MediaQuery.of(context).size.width * 0.76,
+    //                 height: 20,
+    //                 child: TextButton(
+    //                   key: const Key("Forget_Password"),
+    //                   onPressed: () {
+    //                     Navigator.pushNamed(
+    //                       context,
+    //                       '/ForgetPassword',
+    //                     );
+    //                   },
+    //                   style: ButtonStyle(
+    //                     backgroundColor:
+    //                     MaterialStateProperty.resolveWith<Color?>(
+    //                           (Set<MaterialState> states) {
+    //                         return myWhite;
+    //                       },
+    //                     ),
+    //                   ),
+    //                   child: Center(
+    //                     child: Text(
+    //                       'Forget Password?',
+    //                       style: TextStyle(
+    //                         fontSize: 16,
+    //                         color: textFieldTextColor,
+    //                       ),
+    //                     ),
+    //                   ),
+    //                 ),
+    //               ),
+    //             ],
+    //           ),
+    //         ),
+    //       ),
+    //     ],
+    //   ),
+    // );
   }
 
   SizedBox emailInput() {
@@ -194,6 +347,7 @@ class _SignInState extends State<SignIn> {
       width: MediaQuery.of(context).size.width * 0.76,
       height: 51,
       child: TextFormField(
+        cursorColor: textFieldTextColor,
         controller: _email,
         decoration: InputDecoration(
           border: OutlineInputBorder(
@@ -271,6 +425,7 @@ class _SignInState extends State<SignIn> {
       width: MediaQuery.of(context).size.width * 0.76,
       height: 71,
       child: TextFormField(
+        cursorColor: textFieldTextColor,
         maxLength: 6,
         obscureText: !_passwordVisible,
         controller: _passowrdInput,

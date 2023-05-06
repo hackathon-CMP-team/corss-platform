@@ -207,7 +207,7 @@ class _SignUpState extends State<SignUp> {
           "Register",
           style: TextStyle(
             fontSize: 20,
-            color: textFieldTextColor,
+            color: butttonTextColor,
           ),
         ),
       ),

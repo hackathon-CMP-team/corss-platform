@@ -35,18 +35,38 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.55),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.47,
+                    ),
+                    Text(
+                      "Forget Password ?    ",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: myBlack,
+                      ),
+                    ),
+                    unformSpacing(),
                     phoneNumberInput(
-                        "Enter your Phone Number", context, _phoneNumberInput),
+                      "Phone Number",
+                      context,
+                      _phoneNumberInput,
+                    ),
+                    unformSpacing(),
                     unformSpacing(),
                     TextButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, "/SignInScreen");
+                          Navigator.pushNamed(
+                            context,
+                            "/SignInScreen",
+                          );
                         },
-                        child: const Text(
+                        child: Text(
                           "Back to Login",
-                          style: TextStyle(fontSize: 16, color: Colors.black45),
-                        )),
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: textFieldTextColor,
+                          ),
+                        ),),
                     unformSpacing(),
                     submit(),
                     SizedBox(
@@ -62,10 +82,12 @@ class _ForgotPasswordState extends State<ForgotPassword> {
 
   Container submit() {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.8,
-      height: textFieldheight,
+      width: MediaQuery.of(context).size.width * 0.76,
+      height: 61,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(buttonRadius),
+        borderRadius: BorderRadius.circular(
+          buttonRadius,
+        ),
       ),
       child: ElevatedButton(
         style: ButtonStyle(
@@ -79,7 +101,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               borderRadius: BorderRadius.circular(
                 buttonRadius,
               ),
-              side: BorderSide(color: Theme.of(context).primaryColor),
+              side: BorderSide(
+                color: Theme.of(context).primaryColor,
+              ),
             ),
           ),
         ),
@@ -87,17 +111,19 @@ class _ForgotPasswordState extends State<ForgotPassword> {
           setState(
             () {
               if (_formKey.currentState!.validate()) {
-                print("PAssed the bottleneck");
-                Navigator.pushNamed(context, '/OneTimePassword');
+                Navigator.pushNamed(
+                  context,
+                  '/OneTimePassword',
+                );
               }
             },
           );
         },
         child: Text(
-          "Send",
+          "SEND",
           style: TextStyle(
             fontSize: 20,
-            color: myWhite,
+            color: butttonTextColor,
           ),
         ),
       ),

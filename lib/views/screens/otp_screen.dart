@@ -28,73 +28,74 @@ class OneTimePasswordState extends State<OneTimePassword> {
             ),
           ),
           child: Form(
-              key: _formKey,
-              child: Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.55),
-                    SizedBox(
-                      // width: MediaQuery.of(context).size.width * 0.8,
-                      // height: MediaQuery.of(context).size.height * 0.3,
-                      child: PinCodeTextField(
-                        keyboardType: TextInputType.number,
-                        length: 6,
-                        blinkWhenObscuring: true,
-                        obscuringCharacter: '*',
-                        // obscuringWidget: FlutterLogo(),
-                        animationType: AnimationType.fade,
-                        onChanged: (value) {
-                          print(value);
-                        },
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Enter the OTP";
-                          } else {
-                            return null;
-                          }
-                        },
-                        pastedTextStyle: TextStyle(
-                          color: Colors.green.shade600,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        pinTheme: PinTheme(
-                          fieldHeight: 50,
-                          fieldWidth: 40,
-                          shape: PinCodeFieldShape.circle,
-                          selectedColor: Colors.amber,
-                          activeColor: Colors.blue,
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                        appContext: context,
+            key: _formKey,
+            child: Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.55),
+                  SizedBox(
+                    // width: MediaQuery.of(context).size.width * 0.8,
+                    // height: MediaQuery.of(context).size.height * 0.3,
+                    child: PinCodeTextField(
+                      keyboardType: TextInputType.number,
+                      length: 6,
+                      blinkWhenObscuring: true,
+                      obscuringCharacter: '*',
+                      // obscuringWidget: FlutterLogo(),
+                      animationType: AnimationType.fade,
+                      onChanged: (value) {
+                        print(value);
+                      },
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Enter the OTP";
+                        } else {
+                          return null;
+                        }
+                      },
+                      pastedTextStyle: TextStyle(
+                        color: Colors.green.shade600,
+                        fontWeight: FontWeight.bold,
                       ),
+                      pinTheme: PinTheme(
+                        fieldHeight: 50,
+                        fieldWidth: 40,
+                        shape: PinCodeFieldShape.circle,
+                        selectedColor: Colors.amber,
+                        activeColor: Colors.blue,
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      appContext: context,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Have not received the OTP?  ",
-                          style: TextStyle(
-                              fontSize: 16, color: textFieldTextColor),
-                        ),
-                        TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              "Resend",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  color: Theme.of(context).primaryColor),
-                            ))
-                      ],
-                    ),
-                    unformSpacing(),
-                    submit(),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.28,
-                    )
-                  ],
-                ),
-              )),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Have not received the OTP?  ",
+                        style:
+                            TextStyle(fontSize: 16, color: textFieldTextColor),
+                      ),
+                      TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Resend",
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: Theme.of(context).primaryColor),
+                          ))
+                    ],
+                  ),
+                  unformSpacing(),
+                  submit(),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.28,
+                  )
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );
@@ -136,7 +137,7 @@ class OneTimePasswordState extends State<OneTimePassword> {
           "Verify",
           style: TextStyle(
             fontSize: 20,
-            color: myWhite,
+            color: textFieldTextColor,
           ),
         ),
       ),

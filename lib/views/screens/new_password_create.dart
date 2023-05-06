@@ -111,15 +111,15 @@ class _NewPasswordCreate extends State<NewPasswordCreate> {
           setState(
             () {
               _formKey.currentState!.validate();
-              print(_confirmPasswordVisibile);
+              Navigator.pushNamed(context, '/HomeScreen');
             },
           );
         },
         child: Text(
-          "Confirm",
+          "SUMBIT",
           style: TextStyle(
             fontSize: 20,
-            color: myWhite,
+            color: textFieldTextColor,
           ),
         ),
       ),
