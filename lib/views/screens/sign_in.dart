@@ -13,7 +13,7 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
-  final _passowrdInput = TextEditingController();
+  final _passwordInput = TextEditingController();
   final _email = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   bool _passwordVisible = false;
@@ -39,18 +39,18 @@ class _SignInState extends State<SignIn> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.45,
                   ),
-                  const Text(
+                  Text(
                     'LOGIN',
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.black,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ),
                   const SizedBox(
                     height: 24,
                   ),
                   emailInput(),
-                  unformSpacing(),
+                  uniformSpacing(),
                   passwordInput(),
                   const SizedBox(
                     height: 8,
@@ -89,13 +89,13 @@ class _SignInState extends State<SignIn> {
                           'LOGIN',
                           style: TextStyle(
                             fontSize: 20,
-                            color: butttonTextColor,
+                            color: buttonTextColor,
                           ),
                         ),
                       ),
                     ),
                   ),
-                  unformSpacing(),
+                  uniformSpacing(),
                   //Register Button
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.76,
@@ -148,7 +148,7 @@ class _SignInState extends State<SignIn> {
                       onPressed: () {
                         Navigator.pushNamed(
                           context,
-                          '/ForgetPassword',
+                          '/NewPasswordCreate',
                         );
                       },
                       style: ButtonStyle(
@@ -213,7 +213,7 @@ class _SignInState extends State<SignIn> {
     //                 height: 24,
     //               ),
     //               emailInput(),
-    //               unformSpacing(),
+    //               uniformSpacing(),
     //               passwordInput(),
     //               const SizedBox(
     //                 height: 8,
@@ -252,13 +252,13 @@ class _SignInState extends State<SignIn> {
     //                       'LOGIN',
     //                       style: TextStyle(
     //                         fontSize: 20,
-    //                         color: butttonTextColor,
+    //                         color: buttonTextColor,
     //                       ),
     //                     ),
     //                   ),
     //                 ),
     //               ),
-    //               unformSpacing(),
+    //               uniformSpacing(),
     //               //Register Button
     //               SizedBox(
     //                 width: MediaQuery.of(context).size.width * 0.76,
@@ -428,7 +428,7 @@ class _SignInState extends State<SignIn> {
         cursorColor: textFieldTextColor,
         maxLength: 6,
         obscureText: !_passwordVisible,
-        controller: _passowrdInput,
+        controller: _passwordInput,
         decoration: InputDecoration(
           suffixIcon: IconButton(
             onPressed: () {

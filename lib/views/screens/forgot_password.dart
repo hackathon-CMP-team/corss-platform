@@ -36,23 +36,29 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.47,
+                      height:MediaQuery.of(context).size.height * 0.47,
                     ),
                     Text(
                       "Forget Password ?    ",
                       style: TextStyle(
                         fontSize: 20,
-                        color: myBlack,
+                        color: Theme.of(context).primaryColor,
                       ),
                     ),
-                    unformSpacing(),
+                    const SizedBox(
+                      height:30, //MediaQuery.of(context).size.height * 0.47,
+                    ),
+                    //uniformSpacing(),
                     phoneNumberInput(
                       "Phone Number",
                       context,
                       _phoneNumberInput,
                     ),
-                    unformSpacing(),
-                    unformSpacing(),
+                    const SizedBox(
+                      height:40, //MediaQuery.of(context).size.height * 0.47,
+                    ),
+                    //uniformSpacing(),
+                    //uniformSpacing(),
                     TextButton(
                         onPressed: () {
                           Navigator.pushNamed(
@@ -67,7 +73,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             color: textFieldTextColor,
                           ),
                         ),),
-                    unformSpacing(),
+                    uniformSpacing(),
                     submit(),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.28,
@@ -123,7 +129,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
           "SEND",
           style: TextStyle(
             fontSize: 20,
-            color: butttonTextColor,
+            color: buttonTextColor,
           ),
         ),
       ),

@@ -5,7 +5,7 @@ import '../widgets/frequently_used_widgets.dart';
 //import 'package:dob_input_field/dob_input_field.dart';
 
 bool _passwordVisible = false;
-bool _confirmPasswordVisibile = false;
+bool _confirmPasswordVisible = false;
 
 class SignUp extends StatefulWidget {
   const SignUp({
@@ -17,7 +17,7 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  final _passowrdInput = TextEditingController();
+  final _passwordInput = TextEditingController();
   final _confirmPass = TextEditingController();
   final _email = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -96,15 +96,15 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ],
                   ),
-                  unformSpacing(),
+                  uniformSpacing(),
                   emailInput(),
-                  unformSpacing(),
+                  uniformSpacing(),
                   phoneNumberInput(
                     "Enter your Phone Number",
                     context,
                     _phoneNumberInput,
                   ),
-                  unformSpacing(),
+                  uniformSpacing(),
                   textFormFieldInput(
                     "Enter your birthday",
                     "Please Enter your birthday",
@@ -113,7 +113,7 @@ class _SignUpState extends State<SignUp> {
                     context,
                     _birthDayInput,
                   ),
-                  unformSpacing(),
+                  uniformSpacing(),
                   passwordInput(),
                   confirmPasswordTextField(),
                   const SizedBox(
@@ -163,7 +163,7 @@ class _SignUpState extends State<SignUp> {
                     ],
                   ),
                   //alreadyHaveAccount(context),
-                  unformSpacing(),
+                  uniformSpacing(),
                 ],
               ),
             ),
@@ -176,7 +176,7 @@ class _SignUpState extends State<SignUp> {
   Container submit() {
     return Container(
       width: MediaQuery.of(context).size.width * 0.8,
-      height: textFieldheight,
+      height: textFieldHeight,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(buttonRadius),
       ),
@@ -207,7 +207,7 @@ class _SignUpState extends State<SignUp> {
           "Register",
           style: TextStyle(
             fontSize: 20,
-            color: butttonTextColor,
+            color: buttonTextColor,
           ),
         ),
       ),
@@ -221,7 +221,7 @@ class _SignUpState extends State<SignUp> {
       child: TextFormField(
         maxLength: 6,
         obscureText: !_passwordVisible,
-        controller: _passowrdInput,
+        controller: _passwordInput,
         decoration: InputDecoration(
           suffixIcon: IconButton(
             onPressed: () {
@@ -314,7 +314,7 @@ class _SignUpState extends State<SignUp> {
       height: 71,
       child: TextFormField(
         maxLength: 6,
-        obscureText: !_confirmPasswordVisibile,
+        obscureText: !_confirmPasswordVisible,
         controller: _confirmPass,
         decoration: InputDecoration(
           suffixIcon: IconButton(
@@ -322,12 +322,12 @@ class _SignUpState extends State<SignUp> {
             onPressed: () {
               setState(
                 () {
-                  _confirmPasswordVisibile = !_confirmPasswordVisibile;
+                  _confirmPasswordVisible = !_confirmPasswordVisible;
                 },
               );
             },
             icon: Icon(
-              _confirmPasswordVisibile
+              _confirmPasswordVisible
                   ? Icons.visibility
                   : Icons.visibility_off,
               color: textFieldTextColor,
@@ -394,7 +394,7 @@ class _SignUpState extends State<SignUp> {
           if (value!.isEmpty) {
             return "Please confirm your pin";
           } else {
-            if (confirmPassword(_passowrdInput.text, _confirmPass.text)) {
+            if (confirmPassword(_passwordInput.text, _confirmPass.text)) {
               return null;
             } else {
               return "Pin is a mismatch";
@@ -408,7 +408,7 @@ class _SignUpState extends State<SignUp> {
   SizedBox emailInput() {
     return SizedBox(
       width: MediaQuery.of(context).size.width * 0.8,
-      height: textFieldheight,
+      height: textFieldHeight,
       child: TextFormField(
         controller: _email,
         decoration: InputDecoration(

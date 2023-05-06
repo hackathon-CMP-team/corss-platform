@@ -55,3 +55,7 @@ bool confirmPassword(String pass, String givenPass) {
     return false;
   }
 }
+
+void resend(){
+
+}

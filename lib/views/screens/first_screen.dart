@@ -94,7 +94,7 @@ class FirstScreen extends StatelessWidget {
                           'LOGIN',
                           style: TextStyle(
                             fontSize: 25,
-                            color: butttonTextColor,
+                            color: buttonTextColor,
                           ),
                         ),
                       ),
@@ -137,7 +137,7 @@ class FirstScreen extends StatelessWidget {
                           'SIGN UP',
                           style: TextStyle(
                             fontSize: 20,
-                            color: butttonTextColor,
+                            color: buttonTextColor,
                           ),
                         ),
                       ),
@@ -255,7 +255,7 @@ class FirstScreen extends StatelessWidget {
 //                           'LOGIN',
 //                           style: TextStyle(
 //                             fontSize: 25,
-//                             color: butttonTextColor,
+//                             color: buttonTextColor,
 //                           ),
 //                         ),
 //                       ),
@@ -298,7 +298,7 @@ class FirstScreen extends StatelessWidget {
 //                           'SIGN UP',
 //                           style: TextStyle(
 //                             fontSize: 20,
-//                             color: butttonTextColor,
+//                             color: buttonTextColor,
 //                           ),
 //                         ),
 //                       ),

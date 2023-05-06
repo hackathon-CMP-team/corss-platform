@@ -19,7 +19,7 @@ class ButtonComponent extends StatelessWidget {
   ///Key to be used in testing
   final String keyName;
   final Function onPressed;
-  //if the buton is white==>it is true
+  //if the button is white==>it is true
   final bool isWhite;
   @override
   Widget build(BuildContext context) {

@@ -5,7 +5,7 @@ import '../../controllers/create_account_controller.dart';
 //We've created global controls in order to POST to the backend.
 
 /// This function is used to return the TextField for the Phone number entry.
-///  Checking if the i/p field is empty and if the given phone nubmer starts with 01 and is valid.
+///  Checking if the i/p field is empty and if the given phone number starts with 01 and is valid.
 ///
 ///
 Widget phoneNumberInput(
@@ -15,7 +15,7 @@ Widget phoneNumberInput(
 ) {
   return SizedBox(
     width: MediaQuery.of(context).size.width * 0.8,
-    height: textFieldheight,
+    height: textFieldHeight,
     child: TextFormField(
       cursorColor: textFieldTextColor,
       keyboardType: TextInputType.phone,
@@ -102,7 +102,7 @@ Widget textFormFieldInput(
   return SizedBox(
     //Also in this function we need to add a controller so that it would send it to the backend?
     width: MediaQuery.of(context).size.width * width,
-    height: textFieldheight,
+    height: textFieldHeight,
     child: TextFormField(
       cursorColor: textFieldTextColor,
       controller: genericTextFormInputController,
@@ -172,7 +172,7 @@ Widget textFormFieldInput(
   );
 }
 
-Widget unformSpacing() {
+Widget uniformSpacing() {
   return const SizedBox(
     height: 12,
   );
