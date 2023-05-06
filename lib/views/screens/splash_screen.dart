@@ -9,11 +9,10 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
-      splashIconSize:MediaQuery.of(context).size.height,
+      splashIconSize: MediaQuery.of(context).size.height,
       splash: 'assets/images/splash_screen.jpg',
       nextScreen: const FirstScreen(),
       splashTransition: SplashTransition.fadeTransition,
-      // pageTransitionType: PageTransitionType.scale,
     );
   }
 }

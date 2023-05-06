@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cmp_developers/constants/constants.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import '../widgets/frequently_used_widgets.dart';
 import '../../controllers/create_account_controller.dart';
 
 class OneTimePassword extends StatefulWidget {
@@ -35,22 +34,20 @@ class OneTimePasswordState extends State<OneTimePassword> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height:MediaQuery.of(context).size.height * 0.47,
+                    height: MediaQuery.of(context).size.height * 0.47,
                   ),
                   Text(
                     "Enter Verification Code",
                     style: TextStyle(
                       fontSize: 20,
                       color: Theme.of(context).primaryColor,
-
                     ),
                   ),
                   const SizedBox(
-                    height:30,
+                    height: 30,
                   ),
                   SizedBox(
-                     width: MediaQuery.of(context).size.width * 0.5,
-                    // height: MediaQuery.of(context).size.height * 0.3,
+                    width: MediaQuery.of(context).size.width * 0.5,
                     child: PinCodeTextField(
                       keyboardType: TextInputType.number,
                       length: 6,
@@ -58,18 +55,16 @@ class OneTimePasswordState extends State<OneTimePassword> {
                       obscuringCharacter: '*',
                       // obscuringWidget: FlutterLogo(),
                       animationType: AnimationType.fade,
-                      onChanged: (value) {
-                        print(value);
-                      },
+                      onChanged: (value) {},
                       validator: (value) {
-                       if (value!.isEmpty && value.length < 6) {
+                        if (value!.isEmpty && value.length < 6) {
                           return "Enter the verification code!";
                         } else {
                           return null;
                         }
                       },
                       pastedTextStyle: TextStyle(
-                        color:  Theme.of(context).primaryColor,
+                        color: Theme.of(context).primaryColor,
                         fontWeight: FontWeight.bold,
                       ),
                       pinTheme: PinTheme(
@@ -79,7 +74,8 @@ class OneTimePasswordState extends State<OneTimePassword> {
                         selectedColor: Theme.of(context).primaryColor,
                         inactiveColor: Theme.of(context).primaryColor,
                         disabledColor: Theme.of(context).primaryColor,
-                        activeColor: Theme.of(context).primaryColor, //Theme.of(context).primaryColor,
+                        activeColor: Theme.of(context)
+                            .primaryColor, //Theme.of(context).primaryColor,
                         borderRadius: BorderRadius.circular(25),
                       ),
                       appContext: context,
@@ -94,21 +90,22 @@ class OneTimePasswordState extends State<OneTimePassword> {
                             TextStyle(fontSize: 16, color: textFieldTextColor),
                       ),
                       TextButton(
-                          onPressed: () {
-                            resend();
-                          },
-                          child: Text(
-                            "Resend",
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: Theme.of(context).primaryColor),
-                          ))
+                        onPressed: () {
+                          resend();
+                        },
+                        child: Text(
+                          "Resend",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                      )
                     ],
                   ),
                   const SizedBox(
-                    height:40,
+                    height: 40,
                   ),
-                  //uniformSpacing(),
                   submit(),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.28,

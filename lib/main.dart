@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName: (ctx) => const HomeScreen(),
       },
       home:
-          const SplashScreen(), //Use Outer home. We use Scaffold, since it has an AppBar.
+          const FirstScreen(), //Use Outer home. We use Scaffold, since it has an AppBar.
     );
   }
 }

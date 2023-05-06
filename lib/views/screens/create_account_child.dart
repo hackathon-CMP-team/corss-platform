@@ -50,7 +50,7 @@ class CreateAccountChildState extends State<CreateAccountChild> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: height * 0.25,
+                    height: height * 0.22,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -73,7 +73,6 @@ class CreateAccountChildState extends State<CreateAccountChild> {
                       ),
                     ],
                   ),
-
                   const SizedBox(
                     height: 24,
                   ),
@@ -99,48 +98,78 @@ class CreateAccountChildState extends State<CreateAccountChild> {
                           _lastNameInput),
                     ],
                   ),
-
                   uniformSpacing(),
-
                   emailInput(),
-
                   uniformSpacing(),
-
                   phoneNumberInput(
-                      "Enter your Phone Number", context, _phoneNumberInput),
-
+                    "Enter your Phone Number",
+                    context,
+                    _phoneNumberInput,
+                  ),
                   uniformSpacing(),
-
-                  phoneNumberInput("Enter parent Phone Number", context,
-                      _parentPhoneNumberInput),
-
+                  phoneNumberInput(
+                    "Enter parent Phone Number",
+                    context,
+                    _parentPhoneNumberInput,
+                  ),
                   uniformSpacing(),
-
                   textFormFieldInput(
-                      "Enter your birthday",
-                      "Please Enter your birthday",
-                      TextInputType.datetime,
-                      0.8,
-                      context,
-                      _birthDayInput),
-
+                    "Enter your birthday",
+                    "Please Enter your birthday",
+                    TextInputType.datetime,
+                    0.8,
+                    context,
+                    _birthDayInput,
+                  ),
                   uniformSpacing(),
                   passwordInput(),
-                  //Spacing
-                  uniformSpacing(),
                   _confirmPasswordTextField(),
-
                   const SizedBox(
-                    height: 24,
+                    height: 8,
                   ),
-
                   submit(),
-
                   const SizedBox(
                     height: 48,
                   ),
-
-                  alreadyHaveAccount(context),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.1,
+                      ),
+                      Text(
+                        "Already have an account?    ",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: textFieldTextColor,
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(
+                            context,
+                            '/SignInScreen',
+                          );
+                        },
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.resolveWith<Color?>(
+                            (Set<MaterialState> states) {
+                              return myWhite;
+                            },
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Login",
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                   uniformSpacing(),
                 ],
               ),
@@ -161,6 +190,19 @@ class CreateAccountChildState extends State<CreateAccountChild> {
         obscureText: !_confirmPasswordVisible,
         controller: _confirmPass,
         decoration: InputDecoration(
+          suffixIcon: IconButton(
+            onPressed: () {
+              setState(
+                () {
+                  _confirmPasswordVisible = !_confirmPasswordVisible;
+                },
+              );
+            },
+            icon: Icon(
+              _confirmPasswordVisible ? Icons.visibility : Icons.visibility_off,
+              color: textFieldTextColor,
+            ),
+          ),
           filled: true,
           fillColor: myWhite,
           errorMaxLines: 1,
@@ -176,11 +218,34 @@ class CreateAccountChildState extends State<CreateAccountChild> {
           contentPadding: const EdgeInsets.all(
             contentPadding,
           ),
-          border: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(
+          border: OutlineInputBorder(
+            borderRadius: const BorderRadius.all(
               Radius.circular(
                 textFieldRadius,
               ),
+            ),
+            borderSide: BorderSide(
+              color: textFieldTextColor,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(
+                textFieldRadius,
+              ),
+            ),
+            borderSide: BorderSide(
+              color: textFieldTextColor,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(
+                textFieldRadius,
+              ),
+            ),
+            borderSide: BorderSide(
+              color: textFieldTextColor,
             ),
           ),
           disabledBorder: OutlineInputBorder(
@@ -192,21 +257,6 @@ class CreateAccountChildState extends State<CreateAccountChild> {
             borderSide: BorderSide(
               color: textFieldTextColor,
             ),
-          ),
-          suffixIcon: IconButton(
-            icon: Icon(
-              _confirmPasswordVisible
-                  ? Icons.visibility
-                  : Icons.visibility_off,
-              color: textFieldTextColor,
-            ),
-            onPressed: () {
-              setState(
-                () {
-                  _confirmPasswordVisible = !_confirmPasswordVisible;
-                },
-              );
-            },
           ),
         ),
         validator: (value) {
@@ -227,9 +277,11 @@ class CreateAccountChildState extends State<CreateAccountChild> {
   Container submit() {
     return Container(
       width: MediaQuery.of(context).size.width * 0.8,
-      height: textFieldheight,
+      height: textFieldHeight,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(buttonRadius),
+        borderRadius: BorderRadius.circular(
+          buttonRadius,
+        ),
       ),
       child: ElevatedButton(
         style: ButtonStyle(
@@ -243,7 +295,9 @@ class CreateAccountChildState extends State<CreateAccountChild> {
               borderRadius: BorderRadius.circular(
                 buttonRadius,
               ),
-              side: BorderSide(color: Theme.of(context).primaryColor),
+              side: BorderSide(
+                color: Theme.of(context).primaryColor,
+              ),
             ),
           ),
         ),
@@ -258,7 +312,7 @@ class CreateAccountChildState extends State<CreateAccountChild> {
           "Register",
           style: TextStyle(
             fontSize: 20,
-            color: myWhite,
+            color: buttonTextColor,
           ),
         ),
       ),
@@ -274,16 +328,6 @@ class CreateAccountChildState extends State<CreateAccountChild> {
         obscureText: !_passwordVisible,
         controller: _passwordInput,
         decoration: InputDecoration(
-          disabledBorder: OutlineInputBorder(
-            borderRadius: const BorderRadius.all(
-              Radius.circular(
-                textFieldRadius,
-              ),
-            ),
-            borderSide: BorderSide(
-              color: textFieldTextColor,
-            ),
-          ),
           suffixIcon: IconButton(
             onPressed: () {
               setState(
@@ -312,11 +356,44 @@ class CreateAccountChildState extends State<CreateAccountChild> {
           contentPadding: const EdgeInsets.all(
             contentPadding,
           ),
-          border: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(
+          border: OutlineInputBorder(
+            borderRadius: const BorderRadius.all(
               Radius.circular(
                 textFieldRadius,
               ),
+            ),
+            borderSide: BorderSide(
+              color: textFieldTextColor,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(
+                textFieldRadius,
+              ),
+            ),
+            borderSide: BorderSide(
+              color: textFieldTextColor,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(
+                textFieldRadius,
+              ),
+            ),
+            borderSide: BorderSide(
+              color: textFieldTextColor,
+            ),
+          ),
+          disabledBorder: OutlineInputBorder(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(
+                textFieldRadius,
+              ),
+            ),
+            borderSide: BorderSide(
+              color: textFieldTextColor,
             ),
           ),
         ),
@@ -339,7 +416,7 @@ class CreateAccountChildState extends State<CreateAccountChild> {
   SizedBox emailInput() {
     return SizedBox(
       width: MediaQuery.of(context).size.width * 0.8,
-      height: 51,
+      height: textFieldHeight,
       child: TextFormField(
         controller: _email,
         decoration: InputDecoration(
@@ -357,11 +434,44 @@ class CreateAccountChildState extends State<CreateAccountChild> {
           contentPadding: const EdgeInsets.all(
             contentPadding,
           ),
-          border: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(
+          border: OutlineInputBorder(
+            borderRadius: const BorderRadius.all(
               Radius.circular(
                 textFieldRadius,
               ),
+            ),
+            borderSide: BorderSide(
+              color: textFieldTextColor,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(
+                textFieldRadius,
+              ),
+            ),
+            borderSide: BorderSide(
+              color: textFieldTextColor,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(
+                textFieldRadius,
+              ),
+            ),
+            borderSide: BorderSide(
+              color: textFieldTextColor,
+            ),
+          ),
+          disabledBorder: OutlineInputBorder(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(
+                textFieldRadius,
+              ),
+            ),
+            borderSide: BorderSide(
+              color: textFieldTextColor,
             ),
           ),
         ),

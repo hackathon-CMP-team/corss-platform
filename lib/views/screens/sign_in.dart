@@ -148,7 +148,7 @@ class _SignInState extends State<SignIn> {
                       onPressed: () {
                         Navigator.pushNamed(
                           context,
-                          '/NewPasswordCreate',
+                          '/ForgetPassword',
                         );
                       },
                       style: ButtonStyle(
@@ -177,169 +177,6 @@ class _SignInState extends State<SignIn> {
         ),
       ),
     );
-    // return Scaffold(
-    //   body: Stack(
-    //     children: [
-    //       SizedBox(
-    //         width: double.infinity,
-    //         height: double.infinity,
-    //         child: /*SvgPicture.asset(
-    //           'assets/image.svg',
-    //           semanticsLabel: 'My Image',
-    //           fit: BoxFit.fill,
-    //         )*/
-    //         Image.asset(
-    //           'assets/images/first_screen.jpg',
-    //           fit: BoxFit.fill,
-    //         ),
-    //       ),
-    //       Form(
-    //         key: _formKey,
-    //         child: Center(
-    //           child: Column(
-    //             crossAxisAlignment: CrossAxisAlignment.center,
-    //             children: [
-    //               SizedBox(
-    //                 height: MediaQuery.of(context).size.height * 0.45,
-    //               ),
-    //               const Text(
-    //                 'LOGIN',
-    //                 style: TextStyle(
-    //                   fontSize: 20,
-    //                   color: Colors.black,
-    //                 ),
-    //               ),
-    //               const SizedBox(
-    //                 height: 24,
-    //               ),
-    //               emailInput(),
-    //               uniformSpacing(),
-    //               passwordInput(),
-    //               const SizedBox(
-    //                 height: 8,
-    //               ),
-    //               SizedBox(
-    //                 width: MediaQuery.of(context).size.width * 0.76,
-    //                 height: 51,
-    //                 child: TextButton(
-    //                   key: const Key("LOGIN_Second_SCREEN"),
-    //                   onPressed: () {
-    //                     Navigator.pushReplacementNamed(
-    //                       context,
-    //                       '/HomeScreen',
-    //                     );
-    //                   },
-    //                   style: ButtonStyle(
-    //                     backgroundColor:
-    //                     MaterialStateProperty.resolveWith<Color?>(
-    //                           (Set<MaterialState> states) {
-    //                         return Theme.of(context).primaryColor;
-    //                       },
-    //                     ),
-    //                     shape:
-    //                     MaterialStateProperty.all<RoundedRectangleBorder>(
-    //                       RoundedRectangleBorder(
-    //                         borderRadius: BorderRadius.circular(
-    //                           buttonRadius,
-    //                         ),
-    //                         side: BorderSide(
-    //                             color: Theme.of(context).primaryColor),
-    //                       ),
-    //                     ),
-    //                   ),
-    //                   child: Center(
-    //                     child: Text(
-    //                       'LOGIN',
-    //                       style: TextStyle(
-    //                         fontSize: 20,
-    //                         color: buttonTextColor,
-    //                       ),
-    //                     ),
-    //                   ),
-    //                 ),
-    //               ),
-    //               uniformSpacing(),
-    //               //Register Button
-    //               SizedBox(
-    //                 width: MediaQuery.of(context).size.width * 0.76,
-    //                 height: 51,
-    //                 child: TextButton(
-    //                   key: const Key("Register_Second_SCREEN"),
-    //                   onPressed: () {
-    //                     Navigator.pushNamed(
-    //                       context,
-    //                       '/SignUp',
-    //                     );
-    //                   },
-    //                   style: ButtonStyle(
-    //                     backgroundColor:
-    //                     MaterialStateProperty.resolveWith<Color?>(
-    //                           (Set<MaterialState> states) {
-    //                         return myWhite;
-    //                       },
-    //                     ),
-    //                     shape:
-    //                     MaterialStateProperty.all<RoundedRectangleBorder>(
-    //                       RoundedRectangleBorder(
-    //                         borderRadius: BorderRadius.circular(
-    //                           buttonRadius,
-    //                         ),
-    //                         side: BorderSide(
-    //                             color: Theme.of(context).primaryColor),
-    //                       ),
-    //                     ),
-    //                   ),
-    //                   child: Center(
-    //                     child: Text(
-    //                       'REGISTER',
-    //                       style: TextStyle(
-    //                         fontSize: 20,
-    //                         color: Theme.of(context).primaryColor,
-    //                       ),
-    //                     ),
-    //                   ),
-    //                 ),
-    //               ),
-    //               const SizedBox(
-    //                 height: 12,
-    //               ),
-    //               SizedBox(
-    //                 width: MediaQuery.of(context).size.width * 0.76,
-    //                 height: 20,
-    //                 child: TextButton(
-    //                   key: const Key("Forget_Password"),
-    //                   onPressed: () {
-    //                     Navigator.pushNamed(
-    //                       context,
-    //                       '/ForgetPassword',
-    //                     );
-    //                   },
-    //                   style: ButtonStyle(
-    //                     backgroundColor:
-    //                     MaterialStateProperty.resolveWith<Color?>(
-    //                           (Set<MaterialState> states) {
-    //                         return myWhite;
-    //                       },
-    //                     ),
-    //                   ),
-    //                   child: Center(
-    //                     child: Text(
-    //                       'Forget Password?',
-    //                       style: TextStyle(
-    //                         fontSize: 16,
-    //                         color: textFieldTextColor,
-    //                       ),
-    //                     ),
-    //                   ),
-    //                 ),
-    //               ),
-    //             ],
-    //           ),
-    //         ),
-    //       ),
-    //     ],
-    //   ),
-    // );
   }
 
   SizedBox emailInput() {
@@ -407,12 +244,12 @@ class _SignInState extends State<SignIn> {
         ),
         validator: (value) {
           if (value!.isEmpty) {
-            return "You must enter a valid Account!";
+            return "You must enter a valid Phone number!";
           } else {
             if (isEmailValid(_email.text)) {
               return null;
             } else {
-              return "You must enter a valid E-mail!";
+              return "You must enter a valid Phone number!";
             }
           }
         },
@@ -507,7 +344,7 @@ class _SignInState extends State<SignIn> {
             if (result) {
               return null;
             } else {
-              return "Password should be 6 digits";
+              return "Enter a valid password";
             }
           }
         },

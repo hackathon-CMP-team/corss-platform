@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cmp_developers/constants/constants.dart';
 import '../../controllers/create_account_controller.dart';
 import '../widgets/frequently_used_widgets.dart';
-//import 'package:dob_input_field/dob_input_field.dart';
 
 bool _passwordVisible = false;
 bool _confirmPasswordVisible = false;
@@ -178,7 +177,9 @@ class _SignUpState extends State<SignUp> {
       width: MediaQuery.of(context).size.width * 0.8,
       height: textFieldHeight,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(buttonRadius),
+        borderRadius: BorderRadius.circular(
+          buttonRadius,
+        ),
       ),
       child: ElevatedButton(
         style: ButtonStyle(
@@ -192,7 +193,9 @@ class _SignUpState extends State<SignUp> {
               borderRadius: BorderRadius.circular(
                 buttonRadius,
               ),
-              side: BorderSide(color: Theme.of(context).primaryColor),
+              side: BorderSide(
+                color: Theme.of(context).primaryColor,
+              ),
             ),
           ),
         ),
@@ -243,7 +246,7 @@ class _SignUpState extends State<SignUp> {
             height: 1,
             fontSize: errorFontSize,
           ),
-          hintText: "Enter Your Password",
+          hintText: "Enter your 6 digit pin",
           hintStyle: TextStyle(
             color: textFieldTextColor,
             fontSize: 16,
@@ -326,9 +329,7 @@ class _SignUpState extends State<SignUp> {
               );
             },
             icon: Icon(
-              _confirmPasswordVisible
-                  ? Icons.visibility
-                  : Icons.visibility_off,
+              _confirmPasswordVisible ? Icons.visibility : Icons.visibility_off,
               color: textFieldTextColor,
             ),
           ),
@@ -339,7 +340,7 @@ class _SignUpState extends State<SignUp> {
             height: 1,
             fontSize: errorFontSize,
           ),
-          hintText: "Enter Your 6 digit pin",
+          hintText: "Confirm your pin",
           hintStyle: TextStyle(
             color: textFieldTextColor,
             fontSize: 16,

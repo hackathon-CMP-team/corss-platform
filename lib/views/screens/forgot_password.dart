@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cmp_developers/constants/constants.dart';
-//import 'package:pin_code_fields/pin_code_fields.dart';
 import '../widgets/frequently_used_widgets.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -36,7 +35,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height:MediaQuery.of(context).size.height * 0.47,
+                      height: MediaQuery.of(context).size.height * 0.47,
                     ),
                     Text(
                       "Forget Password ?    ",
@@ -46,7 +45,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       ),
                     ),
                     const SizedBox(
-                      height:30, //MediaQuery.of(context).size.height * 0.47,
+                      height: 30, //MediaQuery.of(context).size.height * 0.47,
                     ),
                     //uniformSpacing(),
                     phoneNumberInput(
@@ -55,24 +54,23 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       _phoneNumberInput,
                     ),
                     const SizedBox(
-                      height:40, //MediaQuery.of(context).size.height * 0.47,
+                      height: 40, //MediaQuery.of(context).size.height * 0.47,
                     ),
-                    //uniformSpacing(),
-                    //uniformSpacing(),
                     TextButton(
-                        onPressed: () {
-                          Navigator.pushNamed(
-                            context,
-                            "/SignInScreen",
-                          );
-                        },
-                        child: const Text(
-                          "Back to Login",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: textFieldTextColor,
-                          ),
-                        ),),
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          "/SignInScreen",
+                        );
+                      },
+                      child: Text(
+                        "Back to Login",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: textFieldTextColor,
+                        ),
+                      ),
+                    ),
                     uniformSpacing(),
                     submit(),
                     SizedBox(

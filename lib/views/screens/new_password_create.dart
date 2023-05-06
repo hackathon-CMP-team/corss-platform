@@ -47,34 +47,28 @@ class _NewPasswordCreate extends State<NewPasswordCreate> {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.5,
                       ),
-
                       const SizedBox(
                         height: 24,
                       ),
-                    Text(
-                      "New Password",
-                      style: TextStyle(fontSize: 20, color: Theme.of(context).primaryColor,),
-                    ),
-
-                    uniformSpacing(),
-
-                    uniformSpacing(),
-
-                    passwordInput(),
-                    confirmPasswordTextField(),
-
+                      Text(
+                        "New Password",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                      ),
+                      uniformSpacing(),
+                      uniformSpacing(),
+                      passwordInput(),
+                      confirmPasswordTextField(),
                       const SizedBox(
                         height: 24,
                       ),
-
                       submit(),
-
                       const SizedBox(
                         height: 48,
                       ),
-
-                    uniformSpacing(),
-
+                      uniformSpacing(),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.1,
                       )
@@ -208,9 +202,7 @@ class _NewPasswordCreate extends State<NewPasswordCreate> {
               );
             },
             icon: Icon(
-              _confirmPasswordVisible
-                  ? Icons.visibility
-                  : Icons.visibility_off,
+              _confirmPasswordVisible ? Icons.visibility : Icons.visibility_off,
               color: textFieldTextColor,
             ),
           ),
@@ -251,66 +243,4 @@ class _NewPasswordCreate extends State<NewPasswordCreate> {
       ),
     );
   }
-
-  /*SizedBox confirmPasswordTextField() {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.8,
-      height: textFieldHeight,
-      child: TextFormField(
-        maxLength: 6,
-        obscureText: !_confirmPasswordVisible,
-        controller: _confirmPass,
-        decoration: InputDecoration(
-          filled: true,
-          fillColor: myWhite,
-          errorMaxLines: 1,
-          errorStyle: const TextStyle(
-            height: 1,
-            fontSize: errorFontSize,
-          ),
-          hintText: "Confirm your pin",
-          hintStyle: TextStyle(
-            color: textFieldTextColor,
-            fontSize: 16,
-          ),
-          contentPadding: const EdgeInsets.all(
-            contentPadding,
-          ),
-          border: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(
-                textFieldRadius,
-              ),
-            ),
-          ),
-          suffixIcon: IconButton(
-            icon: Icon(
-              _confirmPasswordVisible
-                  ? Icons.visibility
-                  : Icons.visibility_off,
-              color: textFieldTextColor,
-            ),
-            onPressed: () {
-              setState() {
-                _confirmPasswordVisible = !_confirmPasswordVisible;
-                print(_confirmPasswordVisible);
-              }
-            },
-          ),
-        ),
-        validator: (value) {
-          if (value!.isEmpty) {
-            return "Please confirm your pin";
-          } else {
-            if (confirmPassword(_passwordInput.text, _confirmPass.text)) {
-              return null;
-            } else {
-              return "Pin is a mismatch";
-            }
-          }
-        },
-      ),
-    );
-  }
-}*/
 }
